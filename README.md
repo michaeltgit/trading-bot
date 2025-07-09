@@ -58,7 +58,7 @@ Demo of `trading-bot-v1` during a liquidity spike. Watch how the system reacts t
 Sample trade execution with fill logic and real time PnL tracking from the bot.
 
 > Notes:
-> 1. This screenshot was captured under the old order calculation logic. The bot would not have made this trade under the revised logic due to the high spread.
+> 1. This screenshot was captured under the old order calculation logic. The bot would not have made this trade under the revised logic due to the high spread, but nevertheless it is still illustrative.
 > 2. It's normal for initial unrealized PnL to appear negative immediately after a trade. This happens because buys are simulated at the ask price, while the position is valued using the top bid.
 
 ## Tech Stack
