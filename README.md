@@ -46,9 +46,10 @@ PYTHONPATH=build python3 strategy/main_strategy.py   # Run the full Python-based
 ```
 
 ## Live Feed Example
-[![Watch the Live Feed Demo](https://img.youtube.com/vi/NLVKdsBLeDE/0.jpg)](https://www.youtube.com/watch?v=NLVKdsBLeDE)
+[![Watch the Live Feed Demo](https://img.youtube.com/vi/quIsbhoqdBY/0.jpg)](https://www.youtube.com/watch?v=quIsbhoqdBY)
 
-Watch the bot take in real time market data with top of book tracking.
+**Demo of `trading-bot-v1` during a liquidity spike.**
+Watch how the system reacts to rapid market changes in real time.
 
 ---
 
@@ -103,7 +104,7 @@ trading-bot/
 │   ├── main_strategy.py
 │   ├── pnl.py
 │   ├── print_utils.py
-│   └── size_calc.py
+│   └── order_calculator.py
 ├── tests/                    # Unit tests for C++ core
 │   ├── test_config.cpp
 │   ├── test_execution_engine.cpp

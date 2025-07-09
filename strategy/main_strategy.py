@@ -6,7 +6,7 @@ import trading_core as tc
 from config import load_config
 from print_utils import print_market_summary, print_order_book
 from pnl import print_account_summary, on_exec_report
-from size_calc import compute_buy_order, compute_sell_order
+from order_calculator import compute_buy_order, compute_sell_order
 from log import log, start_logger, stop_logger
 
 cfg, symbols, max_pos = load_config()
@@ -95,8 +95,8 @@ def process_symbol(symbol, worker, state):
     now = time.time()
 
     if (
-        state.cash > 0.0 and imbalance_percent > 65 and imbalance_trending_up
-        and spread_pct < 0.0005 and now - state.last_buy_time > 20
+        state.cash > 0.0 and imbalance_percent > 75 and imbalance_trending_up
+        and spread_pct < 0.0003 and now - state.last_buy_time > 20
     ):
         buy_price, size = compute_buy_order(lob, symbol, state.cash, imbalance_percent)
         if size > 0 and buy_price is not None:
@@ -107,8 +107,8 @@ def process_symbol(symbol, worker, state):
             state.last_buy_time = now
 
     if (
-        state.position > 0.0 and imbalance_percent < 45 and not imbalance_trending_up
-        and spread_pct < 0.0010 and now - state.last_sell_time > 10
+        state.position > 0.0 and imbalance_percent < 25 and not imbalance_trending_up
+        and spread_pct < 0.0003 and now - state.last_sell_time > 10
     ):
         sell_price, size = compute_sell_order(lob, symbol, state.position, imbalance_percent)
         if size > 0 and sell_price is not None:

@@ -60,9 +60,11 @@ def compute_sell_order(order_book, symbol, position, imbalance_percent, max_frac
     if len(hist) == 5 and imbalance_percent > hist[0]:
         return None, 0.0
 
+
+
     mid_price = (top_ask.price + top_bid.price) / 2
     spread_penalty = min(spread / mid_price, 0.005)
-    raw_advantage = (50.0 - imbalance_percent) / 25.0
+    raw_advantage = (50.0 - imbalance_percent) / 40.0
     confidence = max(0.0, min(raw_advantage * (1.0 - spread_penalty / 0.01), 1.0))
 
     target = position * max_fraction * confidence
