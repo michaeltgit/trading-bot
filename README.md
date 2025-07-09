@@ -48,21 +48,18 @@ PYTHONPATH=build python3 strategy/main_strategy.py   # Run the full Python-based
 ## Live Feed Example
 [![Watch the Live Feed Demo](https://img.youtube.com/vi/quIsbhoqdBY/0.jpg)](https://www.youtube.com/watch?v=quIsbhoqdBY)
 
-**Demo of `trading-bot-v1` during a liquidity spike.**
-Watch how the system reacts to rapid market changes in real time.
+Demo of `trading-bot-v1` during a liquidity spike. Watch how the system reacts to rapid market changes in real time.
 
 ---
 
 ## Simulated Order Fills
 ![Simulated Fill Screenshot](assets/fill_demo.png)
 
-Sample trade execution with fill logic and real-time PnL tracking from the bot.
+Sample trade execution with fill logic and real time PnL tracking from the bot.
 
-> Note: Initial unrealized PnL may appear negative immediately after a trade.
-> This is expected, since buys are simulated at the ask price, while mark to market is based on the top bid.
-> As long as there is a spread, the initial PnL will reflect this difference.
-
-
+> Notes:
+> 1. This screenshot was captured under the old order calculation logic. The bot would not have made this trade under the revised logic due to the high spread.
+> 2. It's normal for initial unrealized PnL to appear negative immediately after a trade. This happens because buys are simulated at the ask price, while the position is valued using the top bid.
 
 ## Tech Stack
 
